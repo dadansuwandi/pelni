@@ -2057,6 +2057,7 @@
     <Content Include="apps\Qc_Trm.aspx" />
     <Content Include="apps\Qc_Trx.aspx" />
     <Content Include="apps\recording.png" />
+    <Content Include="apps\ReportCommenAndMore.aspx" />
     <Content Include="apps\ReportThread_Mar24.aspx" />
     <Content Include="apps\ReportWhatsAppResponse.aspx" />
     <Content Include="apps\Report_HistoryCall.aspx" />
@@ -24619,6 +24620,13 @@
       <DependentUpon>Qc_Trx.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="apps\ReportCommenAndMore.aspx.designer.vb">
+      <DependentUpon>ReportCommenAndMore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="apps\ReportCommenAndMore.aspx.vb">
+      <DependentUpon>ReportCommenAndMore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="apps\ReportThread_Mar24.aspx.designer.vb">
       <DependentUpon>ReportThread_Mar24.aspx</DependentUpon>
     </Compile>
@@ -25708,7 +25716,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

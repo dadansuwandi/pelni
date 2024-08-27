@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/apps/Uidesk.Master" CodeBehind="XtraReportDetailDaily.aspx.vb" Inherits="ICC.XtraReportDetailDaily" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/apps/Uidesk.Master" CodeBehind="ReportCommenAndMore.aspx.vb" Inherits="ICC.ReportCommenAndMore" %>
 
 <%@ Register Assembly="DevExpress.Web.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.ASPxHtmlEditor.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxHtmlEditor" TagPrefix="dx" %>
@@ -54,28 +54,17 @@
                             <Settings ShowFilterRow="true" ShowFilterRowMenu="false" ShowGroupPanel="true" ShowFilterBar="Hidden" EnableFilterControlPopupMenuScrolling="true"
                                 ShowVerticalScrollBar="false" ShowFooter="true" ShowHorizontalScrollBar="true" />
                             <Columns>
-                                <dx:GridViewDataTextColumn Caption="CallID" FieldName="uniqueid"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Source" FieldName="SourceCall"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Destination" FieldName="Destination"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Context" FieldName="SourceContect"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="State Call" FieldName="StateCall"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Description Call" FieldName="PositionCall"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Start Call" Width="150px" FieldName="CHAN_START"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Handled IVR" Width="150px" FieldName="ANSWER"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Call Pickup" Width="150px" FieldName="BRIDGE_ENTER"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Call Hangup" Width="150px" FieldName="BRIDGE_EXIT"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="From IVR to Agent" Width="150px" FieldName="StartCallIVR"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Duration Talk To Agent" Width="150px" FieldName="StartIVRENDHANGUP"></dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Duration Total Call" Width="150px" FieldName="StartCallHANGUP"></dx:GridViewDataTextColumn>
-                                <%--<dx:GridViewDataHyperLinkColumn Caption="Recording File" Width="300px" FieldName="RecordingFile"></dx:GridViewDataHyperLinkColumn>--%>
-                                <dx:GridViewDataHyperLinkColumn Settings-FilterMode="DisplayText" Caption="Recording File" CellStyle-HorizontalAlign="Center"
-                                    ShowInCustomizationForm="True" FieldName="RecordingFile" Width="150px">
-                                    <DataItemTemplate>
-                                        <dx:ASPxHyperLink ForeColor="#333333" Font-Underline="true" Font-Size="10px" ID="ASPxHyperLinkTest" Target="_blank" runat="server" Text="Play Stream"
-                                            NavigateUrl='<%#Eval("RecordingFile") %>'>
-                                        </dx:ASPxHyperLink>
-                                    </DataItemTemplate>
-                                </dx:GridViewDataHyperLinkColumn>
+
+                                <dx:GridViewDataTextColumn Caption="Handle by" FieldName="handle_by"></dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Agent Handle" FieldName="AgentHandle"></dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Message Post" FieldName="messagePost"></dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Messages" FieldName="messages"></dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="comment id" Width="150px" FieldName="comment_id"></dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="profile id" Width="150px" FieldName="profile_id"></dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Name Customer" Width="150px" FieldName="name"></dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Source Socmed" Width="150px" FieldName="source_socmed"></dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Status type" Width="150px" FieldName="status_type"></dx:GridViewDataTextColumn>
+                                
                             </Columns>
                             <GroupSummary>
                                 <dx:ASPxSummaryItem SummaryType="Count" />

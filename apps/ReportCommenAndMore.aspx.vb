@@ -2,7 +2,7 @@
 Imports System.Data
 Imports System.Data.SqlClient
 Imports Microsoft.SqlServer
-Public Class XtraReportDetailDaily
+Public Class ReportCommenAndMore
     Inherits System.Web.UI.Page
     Dim comm, com, sqlcom, sqlcomTo As SqlCommand
     Dim sqlcon As New SqlConnection(ConfigurationManager.ConnectionStrings("DefaultConnection").ConnectionString)
@@ -17,7 +17,7 @@ Public Class XtraReportDetailDaily
     End Sub
 
     Private Sub btn_Submit_Click(sender As Object, e As EventArgs) Handles btn_Submit.Click
-        Dim queryInsert As String = "exec [PBX_ReportDetailCall] '" & Session("UserName") & "','" & Format(dt_strdate.Value, "yyyy-MM-dd 00:00:00") & "','" & Format(dt_endate.Value, "yyyy-MM-dd 23:59:59") & "'"
+        Dim queryInsert As String = "exec [ReportCommentAndMore] '" & Session("UserName") & "','" & Format(dt_strdate.Value, "yyyy-MM-dd") & "','" & Format(dt_endate.Value, "yyyy-MM-dd") & "'"
         com = New SqlCommand(queryInsert, con)
         Try
             con.Open()
@@ -26,7 +26,7 @@ Public Class XtraReportDetailDaily
             con.Close()
 
         Catch ex As Exception
-            Response.Write(DirectCast(ex.Message() & "_exec [Xtra_ReportDaily] '" & Session("UserName") & "','" & Format(dt_strdate.Value, "yyyy-MM-dd") & "','" & Format(dt_endate.Value, "yyyy-MM-dd") & "'", String))
+            Response.Write(DirectCast(ex.Message() & "_exec [ReportCommentAndMore] '" & Session("UserName") & "','" & Format(dt_strdate.Value, "yyyy-MM-dd") & "','" & Format(dt_endate.Value, "yyyy-MM-dd") & "'", String))
         End Try
         ASPxGridView1.DataBind()
     End Sub
@@ -34,13 +34,13 @@ Public Class XtraReportDetailDaily
         'TempBaseTrx.SelectCommand = "select CONVERT(VARCHAR(8), DATEADD(SECOND, DATEDIFF(SECOND, CHAN_START, ANSWER), 0), 108) as StartCallIVR,CONVERT(VARCHAR(8), DATEADD(SECOND, DATEDIFF(SECOND, CHAN_START, HANGUP), 0), 108) as StartCallHANGUP,CONVERT(VARCHAR(8), DATEADD(SECOND, DATEDIFF(SECOND, ANSWER, HANGUP), 0), 108) as StartIVRENDHANGUP,* from temp_PBX_ReportDaily where Username='" & Session("UserName") & "'"
         'TempBaseTrx.SelectCommand = "select ROW_NUMBER() OVER(ORDER BY TicketNumber DESC) AS NoUrut,*,10000 as Amount,dbo.udf_StripHTML(Alamat) as AlamatNonHtml,dbo.udf_StripHTML([Description]) as DescriptionNonHtml,ClosedByNew=(select [NAME] from msuser where msuser.USERNAME=NewClosedBy),
         'CreatedByNew=(select [NAME] from msuser where msuser.USERNAME=CreatedBy) from [4_Report_base_trx] where Username='" & Session("UserName") & "'"
-        TempBaseTrx.SelectCommand = "exec PBX_ReportDetailCallShow '" & Session("UserName") & "','" & Format(dt_strdate.Value, "yyyy-MM-dd 00:00:00") & "','" & Format(dt_endate.Value, "yyyy-MM-dd 23:59:59") & "'"
+        TempBaseTrx.SelectCommand = "exec ReportCommentAndMore '" & Session("UserName") & "','" & Format(dt_strdate.Value, "yyyy-MM-dd") & "','" & Format(dt_endate.Value, "yyyy-MM-dd") & "'"
     End Sub
     Private Sub ASPxGridView1_Load(sender As Object, e As EventArgs) Handles ASPxGridView1.Load
         'TempBaseTrx.SelectCommand = "select CONVERT(VARCHAR(8), DATEADD(SECOND, DATEDIFF(SECOND, CHAN_START, ANSWER), 0), 108) as StartCallIVR,CONVERT(VARCHAR(8), DATEADD(SECOND, DATEDIFF(SECOND, CHAN_START, HANGUP), 0), 108) as StartCallHANGUP,CONVERT(VARCHAR(8), DATEADD(SECOND, DATEDIFF(SECOND, ANSWER, HANGUP), 0), 108) as StartIVRENDHANGUP,* from temp_PBX_ReportDaily where Username='" & Session("UserName") & "'"
         'TempBaseTrx.SelectCommand = "select ROW_NUMBER() OVER(ORDER BY TicketNumber DESC) AS NoUrut,*,10000 as Amount,dbo.udf_StripHTML(Alamat) as AlamatNonHtml,dbo.udf_StripHTML([Description]) as DescriptionNonHtml,ClosedByNew=(select [NAME] from msuser where msuser.USERNAME=NewClosedBy),
         'CreatedByNew=(select [NAME] from msuser where msuser.USERNAME=CreatedBy) from [4_Report_base_trx] where Username='" & Session("UserName") & "'"
-        TempBaseTrx.SelectCommand = "exec PBX_ReportDetailCallShow '" & Session("UserName") & "','" & Format(dt_strdate.Value, "yyyy-MM-dd 00:00:00") & "','" & Format(dt_endate.Value, "yyyy-MM-dd 23:59:59") & "'"
+        TempBaseTrx.SelectCommand = "exec ReportCommentAndMore '" & Session("UserName") & "','" & Format(dt_strdate.Value, "yyyy-MM-dd") & "','" & Format(dt_endate.Value, "yyyy-MM-dd") & "'"
     End Sub
     Private Sub btn_Export_Click(sender As Object, e As EventArgs) Handles btn_Export.Click
         Dim casses As String = ddList.SelectedValue
